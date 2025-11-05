@@ -16,7 +16,7 @@ A beautiful, responsive weather application with glassmorphism design and intera
 
 <h2>🚀 Live Demo</h2>
 
-[🔗 View Live Demo](https://davisdimos.github.io/weather-app)
+[🔗 View Live Demo](https://davisdimos.github.io/weather-app/)
 
 <h2>🛠️ Technologies Used</h2>
 
