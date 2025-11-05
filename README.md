@@ -84,8 +84,8 @@ weather-app/
 <h2>📸 Screenshots</h2>
 
 ### Desktop View
-![Desktop Screenshot(default)](/pictures/screenshots/athens.png)
-![Desktop Screenshot(search for Tokyo)](pictures/screenshots/athens.png)
+![Desktop Screenshot(default)](/pictures/screenshots/Athens.png)
+![Desktop Screenshot(search for Tokyo)](pictures/screenshots/Tokyo.png)
 
 ### Mobile View  
 ![Mobile Screenshot_1](pictures/screenshots/mobile.png)
