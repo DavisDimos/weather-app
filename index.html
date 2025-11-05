@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Weather App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="weather-section">
+            <div class="weather-card glass-card">
+                <div class="search-section">
+                    <input type="text" id="city-input" placeholder="Πληκτρολόγησε πόλη...">
+                    <div class="search-buttons">
+                        <button id="search-btn"><img src="pictures/icons/search.svg" alt="Search" class="icon">Αναζήτηση</button>
+                        <button id="location-btn" title="My location" aria-label="Find my location"> <img src="pictures/icons/location.svg" alt="My Location"
+                                class="icon"></button>
+                    </div>
+                </div>
+
+                <div class="weather-info">
+                    <div class="weather-header">
+                        <div class="weather-icon">
+                            <img id="weather-icon" src="" alt="Weather Icon" style="display: none;">
+                        </div>
+
+                        <div class="time-info">
+                            <div class="time-symbol" id="time-symbol"> <img src="pictures/icons/sun.svg" alt="Day"
+                                    id="time-symbol-icon" class="icon">
+                            </div>
+                            <div class="time-details">
+                                <div class="day-night" id="day-night-status">Μέρα</div>
+                                <div class="local-time" id="local-time">--:--</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location" id="location">--</div>
+                    <div class="temperature" id="temperature">--°C</div>
+                    <div class="description" id="description">--</div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>Υγρασία:</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Ανεμος:</span>
+                            <span id="wind">-- km/h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-scroll-hint">
+            ↓ Κύλισε προς τα κάτω για τον χάρτη ↓
+        </div>
+
+        <div class="map-section">
+            <div class="map-card glass-card">
+                <h3>Τοποθεσία</h3>
+                <div id="weather-map"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="file_js/weather-api.js"></script>
+    <script src="file_js/app.js"></script>
+</body>
+
+</html>
