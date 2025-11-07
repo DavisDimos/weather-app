@@ -26,10 +26,8 @@ window.addEventListener('resize', handleMapResize);
 
 // Load weather for default city when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    // Αρχικοποίηση χάρτη
+    
     initMap();
-
-    // Προκαθορισμένη πόλη
     cityInput.value = 'Athens';
     handleSearch();
 });
@@ -46,9 +44,8 @@ async function handleSearch() {
     try {
         showLoading();
         const weatherData = await getWeatherData(city);
-        console.log('Weather data:', weatherData); // Debug
-
-        // Ενημέρωση UI με καιρό και χάρτη
+        console.log('Weather data:', weatherData); 
+        
         updateWeatherUI(weatherData);
 
     } catch (error) {
@@ -60,7 +57,7 @@ async function handleSearch() {
 // Update loading state για location button
 async function handleLocationClick() {
     try {
-        // Disable button during loading
+        
         locationBtn.disabled = true;
         locationBtn.innerHTML = '<div class="loading-spinner"></div>';
 
@@ -76,7 +73,7 @@ async function handleLocationClick() {
         removeLoading();
         cityInput.value = '';
     } finally {
-        // Re-enable button
+        
         locationBtn.disabled = false;
         locationBtn.innerHTML = '<img src="pictures/icons/location.svg" alt="My Location" class="icon">';
     }
@@ -126,7 +123,6 @@ function getCurrentLocation() {
             return;
         }
 
-        // Show loading state
         showLoading();
         cityInput.value = 'Αναζήτηση τοποθεσίας...';
 
@@ -171,13 +167,11 @@ function showLoading() {
 }
 
 function removeLoading() {
-    // Remove any loading states if needed
     const loadingElements = document.querySelectorAll('.loading');
     loadingElements.forEach(el => el.classList.remove('loading'));
 }
 
 function showError(message) {
-    // Αντί για alert, μπορούμε να χρησιμοποιήσουμε ένα καλύτερο UI
     const errorDiv = document.createElement('div');
     errorDiv.style.cssText = `
         position: fixed;
@@ -194,7 +188,6 @@ function showError(message) {
     errorDiv.textContent = message;
     document.body.appendChild(errorDiv);
 
-    // Αυτόματη αφαίρεση μετά από 5 δευτερόλεπτα
     setTimeout(() => {
         errorDiv.remove();
     }, 5000);
@@ -285,10 +278,8 @@ function updateBackground(backgroundGradient) {
 // ------------ Map Functions---------------------------
 
 function initMap() {
-    // Δημιουργία χάρτη με προβολή όλου του κόσμου
     map = L.map('weather-map').setView([0, 0], 2);
 
-    // Προσθήκη basemap tiles (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -301,7 +292,6 @@ function updateMap(lat, lon, cityName) {
         map.removeLayer(marker);
     }
 
-    // Responsive zoom level
     const zoomLevel = window.innerWidth <= 768 ? 9 : 10;
 
     map.setView([lat, lon], zoomLevel);
@@ -311,7 +301,6 @@ function updateMap(lat, lon, cityName) {
         .bindPopup(`<b>${cityName}</b>`)
         .openPopup();
 
-    // Resize map after update
     handleMapResize();
 }
 
@@ -345,8 +334,7 @@ function adjustMapHeight() {
         const mapSection = document.querySelector('.map-section');
 
         if (mapContainer && mapSection) {
-            // Υπολόγισε το διαθέσιμο ύψος
-            const availableHeight = mapSection.offsetHeight - 40; // 40px για padding κλπ
+            const availableHeight = mapSection.offsetHeight - 40; 
             mapContainer.style.height = availableHeight + 'px';
 
             // Re-initialize map size
